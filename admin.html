@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Admin Page</title>
+    <!-- fontawosome 6.4.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- main css -->
+    <link rel="stylesheet" href="./assects/CSS/style.css">
+  </head>
+  <body>
+
+    <div class="container-fluid ">
+      <div class="row">
+        <div class="col-xxl-2"></div>
+        <div class="col-xxl-8">
+          <div class="mainDiv " style="margin-top: 100px;">
+
+
+          <table class="table table-dark table-striped">
+            <div class="d-grid mb-2"><button data-bs-toggle="modal" data-bs-target="#addStudentsModal" class="btn btn-primary" style="color:rgb(255, 255, 255); font-size: 24px;"> Add Students</button></div>
+            <thead>
+              <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col"> Photo</th>
+                <th scope="col"> Name</th>
+                <th scope="col"> Roll</th>
+                <th scope="col"> Reg No</th>
+                <th scope="col"> Create At</th>
+                <th scope="col"> Result</th>
+                <th scope="col"> Action</th>
+              </tr>
+            </thead>
+            <tbody class="DynamicStudentsList">
+              
+            </tbody>
+          </table>
+
+
+
+        </div>
+
+
+
+
+
+
+
+<!-- Modal for add studentss -->
+<div class="modal fade" id="addStudentsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title " id="exampleModalLabel">Create Students List</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="message">
+          
+        </div>
+
+        <form action="" id="StudentsDataForm">
+
+          <div> <input type="text" placeholder="Students Photo Link" class="form-control my-2" name="Students_Photo"></div>
+          <div> <input type="text" placeholder="Students Name" class="form-control my-2" name="Students_Name"></div>
+          <div> <input type="text" placeholder="Students Roll" class="form-control my-2" name="Students_Roll"></div>
+          <div> <input type="text" placeholder="Students Reg No" class="form-control my-2" name="Students_Reg_No"></div>
+          <div class="d-grid mt-3"> <button class="btn btn-primary" type="submit"> Create</button></div>
+          <div class="d-grid my-2"> <button class="btn btn-warning" type="reset"> Reset</button></div>
+          
+
+        </form>
+        
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div class="col-xxl-2"></div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal for preview data -->
+<div class="modal fade" id="previewDataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+     
+      <div class="modal-body bg-dark text-center rounded Stpreview">
+      
+
+        
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./app/data.js"></script>
+    <script src="./app/functions.js"></script>
+    <script src="./app/main.js"></script>
+
+  
+  </body>
+</html>
