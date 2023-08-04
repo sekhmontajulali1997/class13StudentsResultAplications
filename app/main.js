@@ -89,6 +89,22 @@ student_add.onsubmit = (e) =>{
         message.innerHTML = formValidation( 'All Fields Are Required', 'danger');
     }else{
         const preqvData = getDataLs('studentsData');
+
+        // check same roll
+
+       if (preqvData.some((data) => data.Students_Roll === objectData.Students_Roll)) {
+
+        message.innerHTML = formValidation( 'This Roll Already Exit', 'danger');
+        return
+       };
+          // check same reg
+
+          if (preqvData.some((data) => data.Students_Reg_No === objectData.Students_Reg_No )) {
+            message.innerHTML = formValidation( 'This reg Already Exit', 'danger');
+            return
+          }
+
+
         preqvData.push(
             {
                 students_Photo: objectData.Students_Photo,
