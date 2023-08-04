@@ -56,3 +56,18 @@ function getFacebookPostTime(postDate) {
   const fbPostTime = getFacebookPostTime(postDate);
 //   console.log(fbPostTime);
   
+
+// radom id generotor functions
+
+function generateRandomID() {
+  const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const idLength = 26;
+  let randomID = '';
+
+  for (let i = 0; i < idLength; i++) {
+    const randomIndex = Math.floor(Math.random() * chars.length);
+    randomID += chars.charAt(randomIndex);
+  }
+
+  return randomID;
+};

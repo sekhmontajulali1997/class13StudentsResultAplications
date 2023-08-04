@@ -96,6 +96,7 @@ student_add.onsubmit = (e) =>{
                 Students_Roll: objectData.Students_Roll,
                 Students_Reg_No: objectData.Students_Reg_No,
                 Create_At: Date.now(),
+                id:generateRandomID(),
             }
            
     
@@ -111,4 +112,3 @@ student_add.onsubmit = (e) =>{
 
 
 };
-//  VIDEOOO LINK 1/8/23 https://www.youtube.com/live/JPju2TjLzbU?feature=share
