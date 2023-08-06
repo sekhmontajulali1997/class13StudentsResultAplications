@@ -4,6 +4,7 @@ const student_add = document.querySelector('#StudentsDataForm');
 const message = document.querySelector('.message');
 const DynamicStudentsList = document.querySelector('.DynamicStudentsList');
 const Stpreview = document.querySelector('.Stpreview');
+const EditStudentsDataForm = document.querySelector('#EditStudentsDataForm');
 
 // show students data 
 
@@ -16,15 +17,15 @@ const ShowAllStudentsData = () => {
             studentsList += `
             <tr class="text-center align-middle">
                     <th scope="row">1</th>
-                    <td><img style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;" src=" ${item.students_Photo}" alt=""></td>
-                    <td> ${item.students_name}</td>
+                    <td><img style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;" src=" ${item.Students_Photo}" alt=""></td>
+                    <td> ${item.Students_Name}</td>
                     <td> ${item.Students_Roll}</td>
                     <td> ${item.Students_Reg_No}</td>
                     <td> ${getFacebookPostTime(item.Create_At)}</td>
                     <td><button class="btn btn-warning"> Add Result</button></td>
                     <td>
                       <i class="fa-solid fa-eye bg-primary mouseee p-2" data-bs-toggle="modal" data-bs-target="#previewDataModal" onclick ="previewData('${item.Students_Reg_No}')"></i>
-                      <i class="fa-solid fa-pen-to-square bg-warning mouseee p-2 mx-2"></i>
+                      <i class="fa-solid fa-pen-to-square bg-warning mouseee p-2 mx-2" data-bs-toggle="modal" data-bs-target="#EditStudentsModal" onclick = "editDataa('${item.id}')"></i>
                       <i class="fa-solid fa-trash bg-danger mouseee p-2" onclick = " DeleteStudents('${item.Students_Roll}')"></i>
     
                     </td>
@@ -33,7 +34,6 @@ const ShowAllStudentsData = () => {
                 
             
             `
-    
             
         })
     }else{
@@ -75,6 +75,53 @@ const previewData = (Students_Reg_No) => {
     
 
 };
+// edit data
+const editDataa = (id) =>{
+
+
+    const oldlsdata = getDataLs('studentsData');
+   const alldata = oldlsdata.find((data)=>data.id === id );
+
+ EditStudentsDataForm.querySelector('input[name="Students_Name"]').value = alldata.Students_Name;
+ EditStudentsDataForm.querySelector('input[name="Students_Roll"]').value = alldata.Students_Roll;
+ EditStudentsDataForm.querySelector('input[name="Students_Reg_No"]').value = alldata.Students_Reg_No;
+ EditStudentsDataForm.querySelector('input[name="Students_id"]').value = alldata.id;
+ EditStudentsDataForm.querySelector('input[name="Students_Photo"]').value = alldata.Students_Photo;
+ EditStudentsDataForm.querySelector('img#previewpho').setAttribute('src', alldata.Students_Photo);
+
+
+};
+
+ // update data after edit
+
+EditStudentsDataForm.onsubmit = (e) => {
+e.preventDefault();
+
+const  editformData = new FormData(e.target);
+const  acceptData = Object.fromEntries(editformData);
+
+
+
+ const oldlsdata = getDataLs('studentsData');
+
+  oldlsdata[oldlsdata.findIndex((data) => data.id === acceptData.Students_id )] = {  
+    ...oldlsdata[oldlsdata.findIndex((data) => data.id === acceptData.Students_id )],
+    ...acceptData,
+  
+  
+   
+  }
+
+ 
+
+sendDataLS('studentsData', oldlsdata );
+ ShowAllStudentsData();
+};
+
+
+
+
+
 
 // get form dataaa
 student_add.onsubmit = (e) =>{
@@ -107,8 +154,8 @@ student_add.onsubmit = (e) =>{
 
         preqvData.push(
             {
-                students_Photo: objectData.Students_Photo,
-                students_name: objectData.Students_Name,
+                Students_Photo: objectData.Students_Photo,
+                Students_Name: objectData.Students_Name,
                 Students_Roll: objectData.Students_Roll,
                 Students_Reg_No: objectData.Students_Reg_No,
                 Create_At: Date.now(),
