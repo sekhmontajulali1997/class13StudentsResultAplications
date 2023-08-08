@@ -4,8 +4,9 @@ const student_add = document.querySelector('#StudentsDataForm');
 const message = document.querySelector('.message');
 const DynamicStudentsList = document.querySelector('.DynamicStudentsList');
 const Stpreview = document.querySelector('.Stpreview');
-const EditStudentsDataForm = document.querySelector('#EditStudentsDataForm');
-
+const EditStudentsDataForm = document.querySelector('#EditStudentsDataForm'); 
+const add_result_Form = document.querySelector('#add_result_Form'); 
+const for_auto_Curt = document.querySelector('.for_auto_Curt'); 
 // show students data 
 
 const ShowAllStudentsData = () => {
@@ -22,7 +23,10 @@ const ShowAllStudentsData = () => {
                     <td> ${item.Students_Roll}</td>
                     <td> ${item.Students_Reg_No}</td>
                     <td> ${getFacebookPostTime(item.Create_At)}</td>
-                    <td><button class="btn btn-warning"> Add Result</button></td>
+                    <td>
+                  
+                    ${item.Result === null ?  `<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_result" onclick = " addResult('${item.id}')"> Add Result</button>` : `<button class="btn btn-warning"> view Result</button>` }
+                    </td>
                     <td>
                       <i class="fa-solid fa-eye bg-primary mouseee p-2" data-bs-toggle="modal" data-bs-target="#previewDataModal" onclick ="previewData('${item.Students_Reg_No}')"></i>
                       <i class="fa-solid fa-pen-to-square bg-warning mouseee p-2 mx-2" data-bs-toggle="modal" data-bs-target="#EditStudentsModal" onclick = "editDataa('${item.id}')"></i>
@@ -118,8 +122,34 @@ sendDataLS('studentsData', oldlsdata );
  ShowAllStudentsData();
 };
 
+// add result for single students 
+
+const addResult = (id) =>{
+
+  add_result_Form.querySelector('input[name="Result_id"]').value = id;
+
+}
 
 
+// add result
+add_result_Form.onsubmit = (e) =>{
+e.preventDefault();
+const getresultData = new FormData(e.target);
+const resultDataObject = Object.fromEntries(getresultData);
+
+
+const addresultSTdata = getDataLs('studentsData');
+addresultSTdata[addresultSTdata.findIndex((data) => data.id === resultDataObject.Result_id)] = {
+  ...addresultSTdata[addresultSTdata.findIndex((data) => data.id === resultDataObject.Result_id)],
+  Result: resultDataObject,
+} 
+sendDataLS('studentsData', addresultSTdata );
+ShowAllStudentsData();
+
+e.target.reset();
+for_auto_Curt.click();
+
+}
 
 
 
@@ -160,6 +190,7 @@ student_add.onsubmit = (e) =>{
                 Students_Reg_No: objectData.Students_Reg_No,
                 Create_At: Date.now(),
                 id:generateRandomID(),
+                Result:null,
             }
            
     

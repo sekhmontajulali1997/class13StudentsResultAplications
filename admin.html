@@ -115,7 +115,7 @@
           <div> <input type="text" placeholder="Students Photo Link" class="form-control my-2" name="Students_Photo"></div>
           <div> <input type="text" placeholder="Students Name" class="form-control my-2" name="Students_Name"></div>
           <div> <input type="text" placeholder="Students Roll" class="form-control my-2" name="Students_Roll"></div>
-          <div> <input type="text" placeholder="Students id" class="form-control my-2" name="Students_id"></div>
+          <div> <input type="hidden" placeholder="Students id" class="form-control my-2" name="Students_id"></div>
           <div> <input type="text" placeholder="Students Reg No" class="form-control my-2" name="Students_Reg_No"></div>
           <div> <img id="previewpho" class="w-100" src="" alt=""></div>
           <div class="d-grid mt-3"> <button class="btn btn-primary" type="submit"> Update </button></div>
@@ -131,7 +131,39 @@
 </div>
 
 
+<!-- Modal for add result  -->
 
+<div class="modal fade" id="add_result" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title " id="exampleModalLabel">Add Result</h5>
+        <button type="button" class="btn-close  for_auto_Curt" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form action="" id="add_result_Form">
+
+          <div> <input type="text" placeholder="Bangla" class="form-control my-2" name="Bangla"></div>
+          <div> <input type="text" placeholder="English" class="form-control my-2" name="English"></div>
+          <div> <input type="text" placeholder="Math" class="form-control my-2" name="Math"></div>
+          <div> <input type="hidden" placeholder="result id" class="form-control my-2" name="Result_id"></div>
+          <div> <input type="text" placeholder="History" class="form-control my-2" name="History"></div>
+          <div> <input type="text" placeholder="Biology" class="form-control my-2" name="Biology"></div>
+          <div> <input type="text" placeholder="Pol_science" class="form-control my-2" name="Pol_science"></div>
+          <div> <input type="text" placeholder="Geography" class="form-control my-2" name="Geography"></div>
+
+          <div class="d-grid mt-3"> <button class="btn btn-primary" type="submit"> Add Result </button></div>
+         
+          
+
+        </form>
+        
+      </div>
+     
+    </div>
+  </div>
+</div>
 
 
 
