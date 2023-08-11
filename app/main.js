@@ -7,6 +7,7 @@ const Stpreview = document.querySelector('.Stpreview');
 const EditStudentsDataForm = document.querySelector('#EditStudentsDataForm'); 
 const add_result_Form = document.querySelector('#add_result_Form'); 
 const for_auto_Curt = document.querySelector('.for_auto_Curt'); 
+const edit_result_Form = document.querySelector('#edit_result_Form'); 
 // show students data 
 
 const ShowAllStudentsData = () => {
@@ -25,7 +26,7 @@ const ShowAllStudentsData = () => {
                     <td> ${getFacebookPostTime(item.Create_At)}</td>
                     <td>
                   
-                    ${item.Result === null ?  `<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_result" onclick = " addResult('${item.id}')"> Add Result</button>` : `<button class="btn btn-warning"> view Result</button>` }
+                    ${item.Result === null ?  `<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_result" onclick = " addResult('${item.id}')"> Add Marks</button>` : `<button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit_result" onclick = "edit_result('${item.id}')"> view Marks</button>` }
                     </td>
                     <td>
                       <i class="fa-solid fa-eye bg-primary mouseee p-2" data-bs-toggle="modal" data-bs-target="#previewDataModal" onclick ="previewData('${item.Students_Reg_No}')"></i>
@@ -151,6 +152,44 @@ for_auto_Curt.click();
 
 }
 
+// onclick event for edit result
+
+const edit_result = (id) => {
+  edit_result_Form.querySelector('input[name="Result_id"]').value = id;
+  const oldtata = getDataLs('studentsData');
+  const alldata = oldtata.find((item) => item.id === id );
+
+
+  edit_result_Form.querySelector('input[name="Bangla"]').value = alldata.Result.Bangla;
+  edit_result_Form.querySelector('input[name="English"]').value = alldata.Result.English;
+  edit_result_Form.querySelector('input[name="Math"]').value = alldata.Result.Math;
+  edit_result_Form.querySelector('input[name="History"]').value = alldata.Result.History;
+  edit_result_Form.querySelector('input[name="Biology"]').value = alldata.Result.Biology;
+  edit_result_Form.querySelector('input[name="Pol_science"]').value = alldata.Result.Pol_science;
+
+}
+// result edit
+
+edit_result_Form.onsubmit = (e) => {
+  e.preventDefault();
+  const edit_result_FormDTATA = new FormData(e.target);
+  const edit_result_FormDTATAGet = Object.fromEntries(edit_result_FormDTATA);
+
+  const oldtata = getDataLs('studentsData');
+ oldtata[oldtata.findIndex((item)=>item.id === edit_result_FormDTATAGet.Result_id )] = {
+  ...oldtata[oldtata.findIndex((item)=>item.id === edit_result_FormDTATAGet.Result_id )],
+  Result: edit_result_FormDTATAGet,
+ }
+
+
+
+ sendDataLS('studentsData', oldtata );
+ ShowAllStudentsData();
+
+}
+
+
+
 
 
 // get form dataaa
@@ -206,3 +245,4 @@ student_add.onsubmit = (e) =>{
 
 
 };
+// sir monday class https://www.youtube.com/live/mU1sWmV1Y7Q?feature=share

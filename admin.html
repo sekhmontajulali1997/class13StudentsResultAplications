@@ -24,6 +24,7 @@
 
           <table class="table table-dark table-striped">
             <div class="d-grid mb-2"><button data-bs-toggle="modal" data-bs-target="#addStudentsModal" class="btn btn-primary" style="color:rgb(255, 255, 255); font-size: 24px;"> Add Students</button></div>
+            <div class="d-grid mb-2"><a href="./index.html" class="btn btn-warning" style="color:rgb(0, 0, 0); font-size: 24px;"> Search Students Result</a></div>
             <thead>
               <tr class="text-center">
                 <th scope="col">#</th>
@@ -151,7 +152,7 @@
           <div> <input type="text" placeholder="History" class="form-control my-2" name="History"></div>
           <div> <input type="text" placeholder="Biology" class="form-control my-2" name="Biology"></div>
           <div> <input type="text" placeholder="Pol_science" class="form-control my-2" name="Pol_science"></div>
-          <div> <input type="text" placeholder="Geography" class="form-control my-2" name="Geography"></div>
+         
 
           <div class="d-grid mt-3"> <button class="btn btn-primary" type="submit"> Add Result </button></div>
          
@@ -165,7 +166,39 @@
   </div>
 </div>
 
+<!-- Modal for edit result  -->
 
+<div class="modal fade" id="edit_result" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title " id="exampleModalLabel">edit Result</h5>
+        <button type="button" class="btn-close  for_auto_Curt" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form action="" id="edit_result_Form">
+
+          <div> <input type="text" placeholder="Bangla" class="form-control my-2" name="Bangla"></div>
+          <div> <input type="text" placeholder="English" class="form-control my-2" name="English"></div>
+          <div> <input type="text" placeholder="Math" class="form-control my-2" name="Math"></div>
+          <div> <input type="hidden" placeholder="result id" class="form-control my-2" name="Result_id"></div>
+          <div> <input type="text" placeholder="History" class="form-control my-2" name="History"></div>
+          <div> <input type="text" placeholder="Biology" class="form-control my-2" name="Biology"></div>
+          <div> <input type="text" placeholder="Pol_science" class="form-control my-2" name="Pol_science"></div>
+          
+
+          <div class="d-grid mt-3"> <button class="btn btn-primary" type="submit">Update Markes </button></div>
+         
+          
+
+        </form>
+        
+      </div>
+     
+    </div>
+  </div>
+</div>
 
 
 
