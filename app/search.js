@@ -119,7 +119,7 @@ search_form.onsubmit = (e) =>{
       
       }else{
       
-          content = '<h1 style=" color: red;"> Result Not Found</h1>';
+          content = `<h1 style=" color: red; text-align: center;  " class=" my-2"> Result Not Found</h1>`;
       
       }
          
@@ -132,3 +132,43 @@ search_form.onsubmit = (e) =>{
    
 
 // get gpa and grade
+
+const getGPA_grade = (marks) => {
+
+  let GPA = '';
+  let grade= '';
+
+  if (marks > 0 && marks < 33 ) {
+    GPA = 0;
+    grade = 'D';
+    
+  }else if (marks > 33 && marks < 40){
+    GPA = 1;
+    grade = 'C';
+
+  }else if (marks > 40 && marks < 50){
+    GPA = 2;
+    grade = 'C+';
+
+  }else if (marks > 50 && marks < 70){
+    GPA = 3;
+    grade = 'B';
+
+  }else if (marks > 70 && marks < 90){
+    GPA = 4;
+    grade = 'A';
+
+  }else if (marks > 90 && marks <= 100){
+    GPA = 5;
+    grade = 'A+';
+
+  }else{
+   '<h1> invalid number </h1>'
+  }
+
+  return {
+    GPA: GPA,
+    grade:grade,
+  }
+
+};

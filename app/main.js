@@ -68,10 +68,10 @@ const previewData = (Students_Reg_No) => {
     Stpreview.innerHTML= `
     
     <div class="image">
-    <img style="width: 100% ; object-fit: cover; border-radius: 5PX;" src="${findDataForPreview.students_Photo}" alt="">
+    <img style="width: 100% ; object-fit: cover; border-radius: 5PX;" src="${findDataForPreview.Students_Photo}" alt="">
   </div>
   <div class="stName">
-    <H4 class="text-dark bg-warning my-2 p-2 rounded">${findDataForPreview.students_name}</H4>
+    <H4 class="text-dark bg-warning my-2 p-2 rounded">${findDataForPreview.Students_Name}</H4>
   </div>
   <div class="STrOLL|| REG">
     <P class="text-light bg-primary my-2 p-2 rounded">${findDataForPreview.Students_Reg_No}</P>
